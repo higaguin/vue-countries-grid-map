@@ -1,0 +1,58 @@
+{
+  "name": "vue-countries-grid-map",
+  "version": "0.0.0",
+  "description": "World and countries maps with a very unique style",
+  "author": {
+    "name": "higaguin",
+    "email": "higaguin123@hotmail.com"
+  },
+  "scripts": {
+    "build": "npm run build:browser && npm run build:common",
+    "lint": "vue-cli-service lint",
+    "build:browser": "cross-env NODE_ENV=production webpack --config config/webpack.config.browser.js --progress --hide-modules",
+    "build:common": "cross-env NODE_ENV=production webpack --config config/webpack.config.common.js --progress --hide-modules",
+    "dev": "cross-env NODE_ENV=development webpack --config config/webpack.config.dev.js --progress --watch",
+    "prepublish": "npm run build"
+  },
+  "main": "dist/vue-countries-grid-map.common.js",
+  "module": "index.js",
+  "unpkg": "dist/vue-countries-grid-map.browser.js",
+  "devDependencies": {
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-core": "^6.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^6.0.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "cross-env": "^3.1.3",
+    "css-loader": "^0.26.1",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-html": "^5.0.5",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "vue-loader": "^10.0.0",
+    "vue-template-compiler": "^2.1.6",
+    "webpack": "^2.1.0-beta.28",
+    "webpack-merge": "^1.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/higaguin/vue-countries-grid-map/issues"
+  },
+  "homepage": "https://github.com/higaguin/vue-countries-grid-map#readme",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "plugin"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/higaguin/vue-countries-grid-map.git"
+  }
+}
