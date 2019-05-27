@@ -3,13 +3,9 @@
 [![npm](https://img.shields.io/npm/v/vue-countries-grid-map.svg) ![npm](https://img.shields.io/npm/dm/vue-countries-grid-map.svg)](https://www.npmjs.com/package/vue-countries-grid-map)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-World and countries maps with a very unique style
+A Vue component that draws a series of interactive maps represented in a grid
 
-## Table of contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Example](#example)
+![](https://previews.dropbox.com/p/orig/AAflBj9BW4YdKfq4jM24QZieBghYktwz5-vIybNUL5heIkBwwqezGOaE61w2xKlW8-jn-E4AGdimpsUGx-ARf1FZhaL_7ycrHMYP7_LKX-_70R9vi5IQe5cU5-CKSsmJ5HI_B5vUzHGb3KZDHGJKd445yZR15ngLEy5mPl-I5bnV3cjzs3-UfRfBpWnKFmzrSVOK_ZR6Kz4PBZ64JJFb6cf3U9ViIEnVILmKcc-uaMzGD4b-4m4U-vyU4CSHPLrcHS6FjJCy6vWNbU85_T7-JmXgLstP7ABGhGIvX7frYhwgl3vFMRfqGoNHxXjxYlzEtUE/p.gif)
 
 # Installation
 
@@ -28,17 +24,6 @@ import VueCountriesGridMap from 'vue-countries-grid-map'
 Vue.use(VueCountriesGridMap)
 ```
 
-Use specific components:
-
-```javascript
-import Vue from 'vue'
-import { Test } from 'vue-countries-grid-map'
-
-Vue.component('test', Test)
-```
-
-**⚠️ A css file is included when importing the package. You may have to setup your bundler to embed the css in your page.**
-
 ## Distribution import
 
 Install all the components:
@@ -48,15 +33,6 @@ import 'vue-countries-grid-map/dist/vue-countries-grid-map.css'
 import VueCountriesGridMap from 'vue-countries-grid-map/dist/vue-countries-grid-map.common'
 
 Vue.use(VueCountriesGridMap)
-```
-
-Use specific components:
-
-```javascript
-import 'vue-countries-grid-map/dist/vue-countries-grid-map.css'
-import { Test } from 'vue-countries-grid-map/dist/vue-countries-grid-map.common'
-
-Vue.component('test', Test)
 ```
 
 **⚠️ You may have to setup your bundler to embed the css file in your page.**
@@ -78,12 +54,6 @@ Install all the components:
 Vue.use(VueCountriesGridMap)
 ```
 
-Use specific components:
-
-```javascript
-Vue.component('test', VueCountriesGridMap.Test)
-```
-
 ## Source import
 
 Install all the components:
@@ -95,15 +65,6 @@ import VueCountriesGridMap from 'vue-countries-grid-map/src'
 Vue.use(VueCountriesGridMap)
 ```
 
-Use specific components:
-
-```javascript
-import Vue from 'vue'
-import { Test } from 'vue-countries-grid-map/src'
-
-Vue.component('test', Test)
-```
-
 **⚠️ You need to configure your bundler to compile `.vue` files.** More info [in the official documentation](https://vuejs.org/v2/guide/single-file-components.html).
 
 # Usage
@@ -112,63 +73,93 @@ Vue.component('test', Test)
 
 # Example
 
-> TODO
-
----
-
-# Plugin Development
-
-## Installation
-
-The first time you create or clone your plugin, you need to install the default dependencies:
-
 ```
-npm install
+<template>
+  <div id="app">
+    <select v-model="selected_option">
+      <option v-for="option in mapOptions" v-bind:value="option.value" v-bind:key="option.value">{{option.text}}</option>
+    </select>
+    <select v-model="selected_color">
+      <option v-for="option in colorOptions" v-bind:value="option.value" v-bind:key="option.value">{{option.text}}</option>
+    </select>
+    <select v-model="selected_type">
+      <option v-for="option in typeOptions" v-bind:value="option.value" v-bind:key="option.value">{{option.text}}</option>
+    </select>
+    <select v-model="selected_detail">
+      <option v-for="option in detailOptions" v-bind:value="option.value" v-bind:key="option.value">{{option.text}}</option>
+    </select>
+    <countries-grid-map 
+      :mapSelected="selected_option" 
+      :primaryColor="selected_color" 
+      :colorType="selected_type"
+      :detailType="selected_detail"
+      @change-click-node="changeClickNode">
+      <template slot="detail">
+        <span v-if="actualNode!=null">A description of: {{ actualNode.name }}</span>
+      </template>
+    </countries-grid-map>
+  </div>
+</template>
+
+<script>
+  import {CountriesGridMap} from 'vue-countries-grid-map';
+
+  export default {
+    name: 'app',
+    components: {
+      CountriesGridMap
+    },
+    methods: {
+      changeClickNode (actualNode) {
+        this.actualNode = actualNode
+      }
+    },
+    data: function() {
+      return {
+        actualNode: null,
+        selected_option: 'map_world',
+        selected_color: 'purple',
+        selected_type: 'random',
+        selected_detail: 'invisible',
+        mapOptions: [
+          { value: 'map_world', text: 'World' },
+          { value: 'map_mexico', text: 'México' },
+          { value: 'map_usa', text: 'United States of America' }
+        ],
+        typeOptions: [
+          { value: 'random', text: 'Random' },
+          { value: 'density', text: 'Density' }
+        ],
+        detailOptions: [
+          { value: 'invisible', text: 'Without Detail' },
+          { value: 'side', text: 'Side Detail' }
+        ],
+        colorOptions: [
+          { value: 'red', text: 'Red' },
+          { value: 'pink', text: 'Pink' },
+          { value: 'purple', text: 'Purple' },
+          { value: 'deepPurple', text: 'Deep Purple' },
+          { value: 'indigo', text: 'Indigo' },
+          { value: 'blue', text: 'Blue' },
+          { value: 'lightBlue', text: 'Light Blue' },
+          { value: 'cyan', text: 'Cyan' },
+          { value: 'teal', text: 'Teal' },
+          { value: 'green', text: 'Green' },
+          { value: 'lightGreen', text: 'Light Green' },
+          { value: 'lime', text: 'Lime' },
+          { value: 'yellow', text: 'Yellow' },
+          { value: 'amber', text: 'Amber' },
+          { value: 'orange', text: 'Orange' },
+          { value: 'deepOrange', text: 'Deep Orange' },
+          { value: 'brown', text: 'Brown' },
+          { value: 'blueGrey', text: 'Blue Grey' },
+          { value: 'grey', text: 'Grey' },
+        ]
+      }
+    }
+  }
+</script>
 ```
-
-## Watch and compile
-
-This will run webpack in watching mode and output the compiled files in the `dist` folder.
-
-```
-npm run dev
-```
-
-## Use it in another project
-
-While developping, you can follow the install instructions of your plugin and link it into the project that uses it.
-
-In the plugin folder:
-
-```
-npm link
-```
-
-In the other project folder:
-
-```
-npm link vue-countries-grid-map
-```
-
-This will install it in the dependencies as a symlink, so that it gets any modifications made to the plugin.
-
-## Publish to npm
-
-You may have to login to npm before, with `npm adduser`. The plugin will be built in production mode before getting published on npm.
-
-```
-npm publish
-```
-
-## Manual build
-
-This will build the plugin into the `dist` folder in production mode.
-
-```
-npm run build
-```
-
----
 
 ## License
 
