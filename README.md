@@ -5,7 +5,7 @@
 
 A Vue component that draws a series of interactive maps represented in a grid
 
-![](https://previews.dropbox.com/p/orig/AAflBj9BW4YdKfq4jM24QZieBghYktwz5-vIybNUL5heIkBwwqezGOaE61w2xKlW8-jn-E4AGdimpsUGx-ARf1FZhaL_7ycrHMYP7_LKX-_70R9vi5IQe5cU5-CKSsmJ5HI_B5vUzHGb3KZDHGJKd445yZR15ngLEy5mPl-I5bnV3cjzs3-UfRfBpWnKFmzrSVOK_ZR6Kz4PBZ64JJFb6cf3U9ViIEnVILmKcc-uaMzGD4b-4m4U-vyU4CSHPLrcHS6FjJCy6vWNbU85_T7-JmXgLstP7ABGhGIvX7frYhwgl3vFMRfqGoNHxXjxYlzEtUE/p.gif)
+<img src="https://previews.dropbox.com/p/orig/AAflBj9BW4YdKfq4jM24QZieBghYktwz5-vIybNUL5heIkBwwqezGOaE61w2xKlW8-jn-E4AGdimpsUGx-ARf1FZhaL_7ycrHMYP7_LKX-_70R9vi5IQe5cU5-CKSsmJ5HI_B5vUzHGb3KZDHGJKd445yZR15ngLEy5mPl-I5bnV3cjzs3-UfRfBpWnKFmzrSVOK_ZR6Kz4PBZ64JJFb6cf3U9ViIEnVILmKcc-uaMzGD4b-4m4U-vyU4CSHPLrcHS6FjJCy6vWNbU85_T7-JmXgLstP7ABGhGIvX7frYhwgl3vFMRfqGoNHxXjxYlzEtUE/p.gif" title="gif"/>
 
 # Installation
 
