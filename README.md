@@ -5,12 +5,12 @@
 
 A Vue component that draws a series of interactive maps represented in a grid
 
-<img src="https://media.giphy.com/media/LT6uxHelxGeyE9XvUh/giphy.gif" style="max-width: 80%;"/>
+<img src="https://media.giphy.com/media/LT6uxHelxGeyE9XvUh/giphy.gif" width="80%"/>
 
 This is a kinda strange proposal to display a map, my main idea is to represent small countries not with the their real size, but instead with a relative size that allows the user an ease identify. Plus, if you like pixel arts, you're gonna have more fun than the regular maps.
 Currently only counts with three maps; a world map, an USA map and a mexico map because...
 
-<img src="https://i1.wp.com/www.sopitas.com/wp-content/uploads/2018/01/porque-soy-mexicano-guillermo-del-toro.jpg" style="max-width: 30%;"/>
+<img src="https://i1.wp.com/www.sopitas.com/wp-content/uploads/2018/01/porque-soy-mexicano-guillermo-del-toro.jpg" width="30%"/>
 
 If you like it, let me know to integrate more countries and add more options.
 
@@ -82,8 +82,6 @@ mapSelected | string	| map_world	| Allows users to choose between a collection o
 primaryColor	| string	| green	| Allow users to choose between a collections of colors. The current available colors are 'green', 'red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue', 'cyan', 'teal', 'lightGreen', 'lime', 'yellow', 'amber', 'orange', 'deepOrange', 'brown', 'blueGrey', 'grey'
 colorType	| string	| random	| Allow users to choose between a few types of colors. The current available options are 'random' and 'density'
 detailType	| string	| invisible	| Allow users to choose between a few configurations for the detail display. The current available configurations are 'invisible' and 'side'
-
-```
 
 # Example
 
